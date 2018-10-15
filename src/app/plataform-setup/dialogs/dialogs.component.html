@@ -1,0 +1,82 @@
+<!-- <div class="container ">
+    <p class="info">Bem vindo ao real admin!</p>  
+    <p class="info">Qual o seu nome?</p>  
+</div> -->
+
+
+<div class="container mt-4 justify-content-center">
+  <div *ngIf="currentCard.name=='username'"
+    class="row m-3 p-4 justify-content-center">
+    <div class="col-7 card box-style shadow-sm">
+      <div class="card-body">
+        <p class="card-title">Bem vindo ao real admin!</p>
+        <p class="card-text">Qual o seu nome?</p>
+        <div class="input-group mb-3">
+          <input type="text"
+            class="form-control"
+            [(ngModel)]="currentCard.data"
+            (ngModelChange)="onKey(event)"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row m-3 p-4"
+    *ngIf="currentCard.name=='salary'">
+    <div class="col card m-2 box-style align-self-center pl-4 pr-4">
+      <div class="card-body">
+        <p class="card-text">Escolha a opcao correspondende a sua renda familiar mensal</p>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text"
+              for="inputGroupSelect01">Renda</label>
+          </div>
+          <select class="custom-select"
+            [(ngModel)]="currentCard.data"
+            (change)="currentCard.data = $event.target.value"
+            id="inputGroupSelect01">
+
+            <option value="Entre R$500 e R$2000">Entre R$ 500,00 e R$ 2000,00</option>
+            <option value="R$ 2000,00 e R$ 4000,00">R$ 2000,00 e R$ 4000,00</option>
+            <option value="R$ 4000,00 e R$ 5000,00">R$ 4000,00 e R$ 5000,00</option>
+            <option value="R$ 5000,00 e R$ 6000,00">R$ 5000,00 e R$ 6000,00</option>
+            <option value="Acima dos R$ 6000,00">Acima dos R$ 6000,00</option>
+          </select>
+        </div>
+        <div ng-if="!curentCard.data && !currentCard.prestine"
+          class="text-muted alert">Por favor, selecione um valor</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row m-3 p-4"
+    *ngIf="currentCard.name=='goals'">
+    <div class="col card m-2 box-style align-self-center pl-4 pr-4">
+      <div class="card-body">
+        <p class="card-text">Com planejamento financeiro eu gostaria de ...</p>
+
+        <div class="input-group mb-3">
+          <input type="text"
+            class="form-control"
+            [(ngModel)]="currentCard.data"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row m-3 p-3 justify-content-center">
+    <button *ngIf="currentCard.validState"
+      (click)="previous()"
+      class="btn m-2">voltar</button>
+    <button (click)="confirm()"
+      class="btn btn-primary text-white m-2">continuar</button>
+  </div>
+</div>

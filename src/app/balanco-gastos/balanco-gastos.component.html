@@ -1,0 +1,20 @@
+<div class="container ">
+  <h3 class="m-3 p-2">Gastos ao longo do tempo</h3>
+  <div class="row justify-content-center">
+    <div [hidden]="!chart"
+      class="col graph">
+      <canvas id="canvas">{{ chart }}</canvas>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Detalhes dos gastos </h5>
+          <p class="card-text">Foram gastos R$ {{sumExpendend}},00.</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
